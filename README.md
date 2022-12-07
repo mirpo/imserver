@@ -57,41 +57,41 @@ example: `go run ./cmd/main.go send`
 
 #### Create single log
 
-``
+```shell
 curl \
 --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJZCI6MX0.5VtXO9J1YF2sv8SwTfvsVseqHMjEwhFBHJLpSuj-i34" \
 --header "Content-Type: application/json" \
 --request POST \
 --data '{"metrics":"xyz"}' \
 http://127.0.0.1:1323/v1/logs
-``
+```
 
 
 #### Create logs in batch
 
-``
+```shell
 curl \
 --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJZCI6MX0.5VtXO9J1YF2sv8SwTfvsVseqHMjEwhFBHJLpSuj-i34" \
 --header "Content-Type: application/json" \
 --request POST \
 --data '[{"metrics": "measure1"}, {"metrics": "measure2"}]' \
 http://127.0.0.1:1323/v1/logs/batch
-``
+```
 
 #### Get logs
 
-``
+```shell
 curl http://127.0.0.1:1323/v1/logs -H 'Accept: application/json' -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJZCI6MX0.5VtXO9J1YF2sv8SwTfvsVseqHMjEwhFBHJLpSuj-i34"
-``
+```
 
-#### Get logs limit 3:
+#### Get logs limit 3
 
-``
+```shell
 curl http://127.0.0.1:1323/v1/logs?filter=1 -H 'Accept: application/json' -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJZCI6MX0.5VtXO9J1YF2sv8SwTfvsVseqHMjEwhFBHJLpSuj-i34"
-``
+```
 
-#### Get logs count:
+#### Get logs count
 
-``
+```shell
 curl http://127.0.0.1:1323/v1/logs/count -H 'Accept: application/json' -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJZCI6MX0.5VtXO9J1YF2sv8SwTfvsVseqHMjEwhFBHJLpSuj-i34"
-``
+```
