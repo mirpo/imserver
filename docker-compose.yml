@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  web:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1323:1323"
+    environment:
+      - IMSERVER_PORT=1323
+      - IMSERVER_CORS=*
+      - JWT_SECRET=secret
+      - IMMUDB_HOST=immudb
+      - IMMUDB_USERNAME=immudb
+      - IMMUDB_PASSWORD=immudb
+      - IMMUDB_DATABASE=defaultdb
+    depends_on:
+      - immudb
+
+  immudb:
+    ports:
+      - '3322:3322'
+      - '8080:8080'
+    container_name: immudb
+    environment:
+      - IMMUDB_ADDRESS=0.0.0.0
+      - IMMUDB_AUTH=true
+    image: 'codenotary/immudb:latest'
